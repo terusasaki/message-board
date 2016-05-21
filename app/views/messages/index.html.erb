@@ -5,6 +5,7 @@
     
   <div class="panel-body">
     <% @messages.each do |message| %>
+      <span class="label label-default">年齢:<%= message.age %></span>
       <span class="label label-info"><%= message.name %></span>
       <%= message.body %>
      (<%= link_to "edit" , edit_message_path(message) %>
@@ -30,12 +31,16 @@
     </div>
   <% end %>
   <div class="form-group">
-    <label for="message_name" class="control-label col-md-2">名前:</label>
-    <div class="col-md-4">
+    <label for="message_age" class="control-label col-md-1">年齢:</label>
+    <div class="col-md-3">
+      <%= f.number_field :age, :class => "form-control" %>
+    </div>
+    <label for="message_name" class="control-label col-md-1">名前:</label>
+    <div class="col-md-3">
       <%= f.text_field :name, :class => "form-control" %>
     </div>
-   <label for="message_body" class="control-label col-md-2">内容:</label>
-   <div class="col-md-4">
+   <label for="message_body" class="control-label col-md-1">内容:</label>
+   <div class="col-md-3">
       <%= f.text_area :body,:class=>"form-control" %>
     </div>
   </div>
